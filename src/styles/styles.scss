@@ -1,0 +1,24 @@
+$backgroundColor: #E5E5E5;
+
+body {
+  background-color: $backgroundColor;
+}
+
+.background-svg {
+  position: absolute;
+  top: 43%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.form-container {
+  position: absolute;
+  background-color: #FFFFFF;
+  width: 450px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9px;
+}

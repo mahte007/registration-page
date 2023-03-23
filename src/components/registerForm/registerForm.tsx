@@ -4,6 +4,7 @@ import type { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import type { SubmitHandler } from 'react-hook-form';
 
+import BackGround from 'components/background/BackGround';
 import { Input } from 'components/input/input';
 
 interface FormData {
@@ -29,18 +30,21 @@ export const RegisterForm: FC = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={wrapAsyncFunction(handleSubmit(formSubmitHandler))}>
-        <Input label="name" name="name" register={register} type="text" />
-        <br />
-        <Input label="email" name="email" register={register} type="email" />
-        <br />
-        <Input label="pass" name="password" register={register} type="password" />
-        <br />
-        <Input label="re-pass" name="passwordConfirm" register={register} type="password" />
-        <br />
-        <button type="submit">Küldés</button>
-      </form>
-    </div>
+    <>
+      <BackGround className="background-svg" />
+      <div className="form-container">
+        <form onSubmit={wrapAsyncFunction(handleSubmit(formSubmitHandler))}>
+          <Input label="name" name="name" register={register} type="text" />
+          <br />
+          <Input label="email" name="email" register={register} type="email" />
+          <br />
+          <Input label="pass" name="password" register={register} type="password" />
+          <br />
+          <Input label="re-pass" name="passwordConfirm" register={register} type="password" />
+          <br />
+          <button type="submit">Küldés</button>
+        </form>
+      </div>
+    </>
   );
 };
