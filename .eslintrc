@@ -1,11 +1,16 @@
 {
+  "plugins": [
+    "react-hook-form"
+  ],
   "extends": [
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
     "next",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react-hook-form/recommended"
   ],
   "rules": {
+    "react-hook-form/destructuring-formstate": "error",
     "react/button-has-type": "error",
     "react/jsx-boolean-value": "error",
     "react/no-array-index-key": "warn",

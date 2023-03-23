@@ -1,12 +1,20 @@
-import type { ChangeEventHandler, FC, HTMLInputTypeAttribute } from 'react';
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable react/jsx-props-no-spreading */
+import type { FC, HTMLInputTypeAttribute } from 'react';
 
 interface InputProps {
-  type?: HTMLInputTypeAttribute;
   name?: string;
-  value?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  type?: HTMLInputTypeAttribute;
+  label?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register?: any;
 }
 
-export const Input: FC<InputProps> = ({ type = 'text', name, value, onChange }) => {
-  return <input name={name} type={type} value={value} onChange={onChange} />;
+export const Input: FC<InputProps> = ({ name, type, label, register }) => {
+  return (
+    <>
+      <label htmlFor={name}>{label}</label>
+      <input id={name} type={type} {...register(name)} />
+    </>
+  );
 };

@@ -1,38 +1,46 @@
-import type { ChangeEvent, FC } from 'react';
-import { useCallback, useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import type { FC } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useForm } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
 
 import { Input } from 'components/input/input';
 
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+}
+
 export const RegisterForm: FC = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    passwordConfirm: '',
-  });
+  const { register, handleSubmit } = useForm<FormData>();
 
-  const handleInputChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setForm(state => ({ ...state, [event.target.name]: event.target.value }));
-  }, []);
+  const formSubmitHandler: SubmitHandler<FormData> = data => {
+    console.log(data);
+  };
 
-  const submit = useCallback(() => {
-    console.log(form);
-  }, [form]);
+  function wrapAsyncFunction<ARGS extends unknown[]>(
+    fn: (...args: ARGS) => Promise<unknown>,
+  ): (...args: ARGS) => void {
+    return (...args) => {
+      void fn(...args);
+    };
+  }
 
   return (
     <div>
-      <Input name="name" value={form.name} onChange={handleInputChange} />
-      <Input name="email" type="email" value={form.email} onChange={handleInputChange} />
-      <Input name="password" type="password" value={form.password} onChange={handleInputChange} />
-      <Input
-        name="passwordConfirm"
-        type="password"
-        value={form.passwordConfirm}
-        onChange={handleInputChange}
-      />
-      <button type="button" onClick={submit}>
-        Mentés
-      </button>
+      <form onSubmit={wrapAsyncFunction(handleSubmit(formSubmitHandler))}>
+        <Input label="name" name="name" register={register} type="text" />
+        <br />
+        <Input label="email" name="email" register={register} type="email" />
+        <br />
+        <Input label="pass" name="password" register={register} type="password" />
+        <br />
+        <Input label="re-pass" name="passwordConfirm" register={register} type="password" />
+        <br />
+        <button type="submit">Küldés</button>
+      </form>
     </div>
   );
 };
