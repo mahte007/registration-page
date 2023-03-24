@@ -56,7 +56,8 @@ export const RegisterForm: FC = () => {
             type="password"
           />
           <br />
-          <button type="submit">Küldés</button>
+          <Input name="tos" register={register} type="checkbox" />
+          <button type="submit">Register</button>
         </form>
       </div>
     </>

@@ -3,7 +3,12 @@
 @mixin content-text {
   font-family: Nunito;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
+}
+
+@mixin center-content {
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -11,7 +16,8 @@ $backgroundColor: #E5E5E5;
 $whiteColor: #FFFFFF;
 $blackishColor: #1F2937;
 $greyColor: #D9D9D9;
-$greenColor: #73D0C1;
+$lightGreenColor: #73D0C1;
+$greenColor: #18B69B;
 
 
 *{
@@ -42,8 +48,8 @@ body {
 .main-container {
   position: absolute;
   background-color: $whiteColor;
-  width: 450px;
-  height: 500px;
+  width: 500px;
+  height: 600px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -63,11 +69,9 @@ body {
 }
 
 .form-container {
-  width: 80%;
-  margin: 0 auto;
-
   input {
-    width: 100%;
+    @include center-content;
+    width: 425px;
     height: 20px;
     border: 1px solid $greyColor;
     border-radius: 6px;
@@ -75,11 +79,23 @@ body {
     outline: none;
 
     &:focus {
-      border: 1px solid $greenColor;
+      border: 1px solid $lightGreenColor;
+    }
+  }
+
+  input[type=checkbox] {
+    width: 20px;
+    padding: 0;
+    background-color: $greenColor;
+    margin: 0;
+
+    &:checked {
+      background-color: $greenColor;
     }
   }
 
   label {
+    margin-left: 26.7px;
     color: $blackishColor;
     font-family: Nunito;
     font-weight: 300;
@@ -87,7 +103,12 @@ body {
   }
 
   button {
-    width: 80%;
-    margin: 20px 15%;
+    @include center-content;
+    width: 75%;
+    height: 40px;
+    color: $whiteColor;
+    background-color: $greenColor;
+    border: none;
+    border-radius: 5px;
   }
 }
