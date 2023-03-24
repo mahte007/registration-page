@@ -11,7 +11,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
       </Head>
-      <Header />
+      <Header className="header-container" />
       <Component {...pageProps} />
     </>
   );

@@ -14,6 +14,7 @@ export const Input: FC<InputProps> = ({ name, type, label, register }) => {
   return (
     <>
       <label htmlFor={name}>{label}</label>
+      <br />
       <input id={name} type={type} {...register(name)} />
     </>
   );

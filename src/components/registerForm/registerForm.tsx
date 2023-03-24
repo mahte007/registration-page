@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-props-no-spreading */
 import type { FC } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -32,15 +33,28 @@ export const RegisterForm: FC = () => {
   return (
     <>
       <BackGround className="background-svg" />
-      <div className="form-container">
-        <form onSubmit={wrapAsyncFunction(handleSubmit(formSubmitHandler))}>
-          <Input label="name" name="name" register={register} type="text" />
+      <div className="main-container">
+        <h2>Get started in minutes</h2>
+        <p>
+          First, let's create your account. Once your account has been created you can choose the
+          billing plan that is right for you and link your account with a server provider.
+        </p>
+        <form
+          className="form-container"
+          onSubmit={wrapAsyncFunction(handleSubmit(formSubmitHandler))}
+        >
+          <Input label="Name" name="name" register={register} type="text" />
           <br />
-          <Input label="email" name="email" register={register} type="email" />
+          <Input label="E-mail" name="email" register={register} type="email" />
           <br />
-          <Input label="pass" name="password" register={register} type="password" />
+          <Input label="Password" name="password" register={register} type="password" />
           <br />
-          <Input label="re-pass" name="passwordConfirm" register={register} type="password" />
+          <Input
+            label="Confirm Password"
+            name="passwordConfirm"
+            register={register}
+            type="password"
+          />
           <br />
           <button type="submit">Küldés</button>
         </form>
