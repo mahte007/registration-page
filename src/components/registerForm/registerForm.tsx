@@ -56,8 +56,17 @@ export const RegisterForm: FC = () => {
             type="password"
           />
           <br />
-          <Input name="tos" register={register} type="checkbox" />
+          <div className="tos-checkbox">
+            <Input name="tos" register={register} type="checkbox" />
+            <label htmlFor="tos">
+              I agree to the <span>Terms of Service</span> and <span>Privacy Policy</span>
+            </label>
+          </div>
           <button type="submit">Register</button>
+          <div className="sing-in-container">
+            <p>Already have an account?</p>
+            <p>Sign in</p>
+          </div>
         </form>
       </div>
     </>
