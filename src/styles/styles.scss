@@ -39,8 +39,8 @@ body {
 
 .background-svg {
   position: absolute;
-  top: 43%;
-  left: 68%;
+  top: 38%;
+  left: 65%;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
@@ -54,6 +54,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 9px;
+  margin-top: 20px;
 
   h2{
     @include content-text;
@@ -82,6 +83,18 @@ body {
     &:focus {
       border: 1px solid $lightGreenColor;
     }
+  }
+
+  .error-text {
+    padding: 0 26.7px;
+    color: red;
+    text-align: left;
+  }
+
+  .successful-message {
+    font-family: Inter;
+    font-size: 20px;
+    color: $greenColor
   }
 
   .tos-checkbox{
@@ -146,7 +159,7 @@ body {
 }
 
 .sing-in-container {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
   line-height: 0;
 
